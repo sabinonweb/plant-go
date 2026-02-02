@@ -1,46 +1,53 @@
-# Iodex - Solana Project
-
+\# Biodex - Solana Project
 
 Iodex is a Solana-based decentralized application (dApp) written in Rust. This project demonstrates building, deploying, and interacting with Solana programs (smart contracts) using the Solana CLI and optionally Anchor.
 
+\## Table of Contents
 
-## Table of Contents
+\- \[Prerequisites\](#prerequisites)
 
+\- \[Installation\](#installation)
 
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Building the Program](#building-the-program)
-- [Deploying the Program](#deploying-the-program)
-- [Running the Program](#running-the-program)
-- [Testing](#testing)
-- [Project Structure](#project-structure)
-- [Troubleshooting](#troubleshooting)
+\- \[Building the Program\](#building-the-program)
 
+\- \[Deploying the Program\](#deploying-the-program)
 
----
+\- \[Running the Program\](#running-the-program)
 
+\- \[Testing\](#testing)
 
-## Prerequisites
+\- \[Project Structure\](#project-structure)
 
+\- \[Troubleshooting\](#troubleshooting)
+
+\---
+
+\## Prerequisites
 
 Before you begin, make sure you have the following installed:
 
+\- Rust (latest stable)
 
-- Rust (latest stable)
-  ```bash
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-  rustup update
+\`\`\`bash
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+rustup update
 
 Solana CLI (v1.14+ recommended)
 
 sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
+
 solana --version
 
-[Optional] Anchor (if using Anchor framework)
+\[Optional\] Anchor (if using Anchor framework)
 
 cargo install --git https://github.com/coral-xyz/anchor avm --locked
+
 avm install latest
+
 avm use latest
+
 anchor --version
 
 Node.js and npm (for frontend integration)
@@ -52,6 +59,7 @@ Installation
 Clone this repository:
 
 git clone https://github.com/your-username/iodex.git
+
 cd iodex
 
 Set your Solana CLI to devnet for testing:
@@ -65,21 +73,29 @@ solana-keygen new --outfile ~/.config/solana/id.json
 Check your balance (you can request test SOL from the faucet):
 
 solana airdrop 2
+
 solana balance
+
 Building the Program
+
 Using Cargo
+
 cargo build-sbf
-# or for release build
+
+\# or for release build
+
 cargo build-sbf --release
 
 This compiles your Rust program to the SBF (Solana Bytecode Format) target.
 
 Using Anchor (Optional)
+
 anchor build
 
 Compiled artifacts are placed in:
 
 target/deploy/
+
 Deploying the Program
 
 Deploy your program to the Solana cluster:
@@ -100,8 +116,10 @@ Anchor tests / scripts (if using Anchor)
 
 Example CLI interaction:
 
-solana program show <PROGRAM_ID>
-solana program close <PROGRAM_ID> --recipient <YOUR_WALLET>
+solana program show
+
+solana program close \--recipient
+
 Testing
 
 Run Rust unit tests:
@@ -115,12 +133,19 @@ anchor test
 This will spin up a local validator and run your tests automatically.
 
 Project Structure
+
 iodex/
-├─ Cargo.toml           # Rust dependencies
+
+├─ Cargo.toml # Rust dependencies
+
 ├─ src/
-│  └─ lib.rs           # Solana program code
-├─ target/deploy/       # Compiled SBF program
-├─ tests/               # Unit / integration tests
+
+│ └─ lib.rs # Solana program code
+
+├─ target/deploy/ # Compiled SBF program
+
+├─ tests/ # Unit / integration tests
+
 └─ README.md
 
 src/lib.rs: Main program logic
